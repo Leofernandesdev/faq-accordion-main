@@ -18,8 +18,14 @@
   <main>
     <article>
       <h1>FAQs</h1>
-      <div class="faq-item"> <!-- Coloquei uma class para que fique mais facil caso tenha alguma alteração e eu precise usar outra div 'um protocolo de boas maneiras' -->
-        <h2 class="faq-question">What is Frontend Mentor, and how will it help me?</h2>
+      <div class="faq-item">
+        <!-- Coloquei uma class para que fique mais facil caso tenha alguma alteração e eu precise usar outra div 'um protocolo de boas maneiras' -->
+        <h2 class="faq-question">What is Frontend Mentor, and how will it help me?
+          <span class="icons">
+            <img class="icon-plus" src="./assets/images/icon-plus.svg" alt="Abrir resposta">
+            <img class="icon-minus" src="./assets/images/icon-minus.svg" alt="Fechar resposta">
+          </span>
+        </h2>
         <p class="response">
           Frontend Mentor offers realistic coding challenges to help developers improve their
           frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
@@ -27,21 +33,36 @@
         </p>
       </div>
       <div class="faq-item">
-        <h2 class="faq-question">Is Frontend Mentor free?</h2>
+        <h2 class="faq-question">Is Frontend Mentor free?
+          <span class="icons">
+            <img class="icon-plus" src="./assets/images/icon-plus.svg" alt="Abrir resposta">
+            <img class="icon-minus" src="./assets/images/icon-minus.svg" alt="Fechar resposta">
+          </span>
+        </h2>
         <p class="response">
           Yes, Frontend Mentor offers both free and premium coding challenges, with the free
           option providing access to a range of projects suitable for all skill levels.
         </p>
       </div>
-       <div class="faq-item"> 
-        <h2 class="faq-question">Can I use Frontend Mentor projects in my portfolio?</h2>
+      <div class="faq-item">
+        <h2 class="faq-question">Can I use Frontend Mentor projects in my portfolio?
+          <span class="icons">
+            <img class="icon-plus" src="./assets/images/icon-plus.svg" alt="Abrir resposta">
+            <img class="icon-minus" src="./assets/images/icon-minus.svg" alt="Fechar resposta">
+          </span>
+        </h2>
         <p class="response">
           Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
           way to showcase your skills to potential employers!
         </p>
       </div>
       <div class="faq-item">
-        <h2 class="faq-question">How can I get help if I'm stuck on a Frontend Mentor challenge?</h2>
+        <h2 class="faq-question">How can I get help if I'm stuck on a Frontend Mentor challenge?
+          <span class="icons">
+            <img class="icon-plus" src="./assets/images/icon-plus.svg" alt="Abrir resposta">
+            <img class="icon-minus" src="./assets/images/icon-minus.svg" alt="Fechar resposta">
+          </span>
+        </h2>
 
         <p class="response">
           The best place to get help is inside Frontend Mentor's Discord community. There's a help
@@ -59,15 +80,24 @@
     </div>
   </footer>
   <script>
-   const questions = document.querySelectorAll('.faq-question');
-   questions.forEach(question => {
-    question.addEventListener('click', () =>{
-      const response = question.nextElementSibling;
-      response.classList.toggle('active')
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(question => {
+      question.addEventListener('click', () => {
+        const response = question.nextElementSibling;
+        response.classList.toggle('active')
+        const iconPlus = question.querySelector('.icon-plus')
+        const iconMinus = question.querySelector('.icon-minus')
+        if (response.classList.contains('active')) {
+          iconPlus.style.display = 'none';
+          iconMinus.style.display = 'block';
+        } else {
+          iconPlus.style.display = 'block'
+          iconMinus.style.display = 'none'
+        }
+      })
     })
-   })
-   
-   
+
+
   </script>
 </body>
 

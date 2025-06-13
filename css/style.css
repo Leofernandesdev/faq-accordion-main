@@ -48,10 +48,17 @@ article {
     padding: 1.5rem 0;
 }
 .faq-question{
-    cursor: pointer;
-  background-color: ;
-  padding: 10px;
-  border-bottom: 1px solid ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;  
+}
+.icons{
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+.icon-minus{
+    display: none;
 }
 .response{
     max-height: 0; 
