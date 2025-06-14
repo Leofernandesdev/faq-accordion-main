@@ -84,6 +84,15 @@
     questions.forEach(question => {
       question.addEventListener('click', () => {
         const response = question.nextElementSibling;
+        questions.forEach(item => {
+          if (item !== question) {
+            item.nextElementSibling.classList.remove('active')
+            const iconPlus = item.querySelector('.icon-plus');
+            const iconMinus = item.querySelector('.icon-minus');
+            iconPlus.style.display = 'block';
+            iconMinus.style.display = 'none';
+          }
+        })
         response.classList.toggle('active')
         const iconPlus = question.querySelector('.icon-plus')
         const iconMinus = question.querySelector('.icon-minus')
