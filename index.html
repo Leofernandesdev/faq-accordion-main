@@ -80,31 +80,48 @@
     </div>
   </footer>
   <script>
+
     const questions = document.querySelectorAll('.faq-question');
+
+
+    function atualizarIcones(questionElement, isActive) {
+      const iconPlus = questionElement.querySelector('.icon-plus');
+      const iconMinus = questionElement.querySelector('.icon-minus');
+
+      if (isActive) {
+        iconPlus.style.display = 'none';
+        iconMinus.style.display = 'block';
+      } else {
+        iconPlus.style.display = 'block';
+        iconMinus.style.display = 'none';
+      }
+    }
+
+    function manipularCliqueFAQ(event) {
+
+      const clickedQuestion = event.currentTarget;
+      const response = clickedQuestion.nextElementSibling;
+
+
+      const isAlreadyActive = response.classList.contains('active');
+
+
+      questions.forEach(question => {
+        question.nextElementSibling.classList.remove('active');
+        atualizarIcones(question, false);
+      });
+
+
+      if (!isAlreadyActive) {
+        response.classList.add('active');
+        atualizarIcones(clickedQuestion, true);
+      }
+    }
+
+
     questions.forEach(question => {
-      question.addEventListener('click', () => {
-        const response = question.nextElementSibling;
-        questions.forEach(item => {
-          if (item !== question) {
-            item.nextElementSibling.classList.remove('active')
-            const iconPlus = item.querySelector('.icon-plus');
-            const iconMinus = item.querySelector('.icon-minus');
-            iconPlus.style.display = 'block';
-            iconMinus.style.display = 'none';
-          }
-        })
-        response.classList.toggle('active')
-        const iconPlus = question.querySelector('.icon-plus')
-        const iconMinus = question.querySelector('.icon-minus')
-        if (response.classList.contains('active')) {
-          iconPlus.style.display = 'none';
-          iconMinus.style.display = 'block';
-        } else {
-          iconPlus.style.display = 'block'
-          iconMinus.style.display = 'none'
-        }
-      })
-    })
+      question.addEventListener('click', manipularCliqueFAQ);
+    });
 
 
   </script>
